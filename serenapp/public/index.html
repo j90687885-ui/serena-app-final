@@ -64,7 +64,7 @@
             </div>
         </div>
 
-        <!-- Pantalla 2: Pregunta 1 -->
+        <!-- Pantallas del Cuestionario (Q1 a Q6) -->
         <div id="screen-q1" class="screen flex-col h-full p-6">
             <div class="progress-container w-full bg-gray-200 rounded-full h-1.5 mb-8"><div class="bg-serena-mango h-1.5 rounded-full" style="width: 16%"></div></div>
             <h2 class="text-2xl font-medium text-center mb-8">Perfecto. Empecemos a dar forma a ese viaje. Para empezar, cuéntanos: ¿quién te acompaña en esta aventura?</h2>
@@ -76,8 +76,6 @@
             </div>
             <div class="text-right"><button id="next-btn-q1" onclick="showScreen('screen-q2')" class="font-semibold text-lg text-serena-gray cursor-not-allowed" disabled>Siguiente &gt;</button></div>
         </div>
-
-        <!-- Pantalla 3: Pregunta 2 -->
         <div id="screen-q2" class="screen flex-col h-full p-6">
             <div class="progress-container w-full bg-gray-200 rounded-full h-1.5 mb-8"><div class="bg-serena-mango h-1.5 rounded-full" style="width: 33%"></div></div>
             <h2 class="text-2xl font-medium text-center mb-12">¡Genial! Ya tenemos el 'quién'. Siguiente paso: el 'cómo'. Tu energía para este viaje es más bien...</h2>
@@ -89,8 +87,6 @@
             </div>
             <div class="text-right"><button id="next-btn-q2" onclick="showScreen('screen-q3')" class="font-semibold text-lg">Siguiente &gt;</button></div>
         </div>
-
-        <!-- Pantalla 4: Pregunta 3 -->
         <div id="screen-q3" class="screen flex-col h-full p-6">
             <div class="progress-container w-full bg-gray-200 rounded-full h-1.5 mb-8"><div class="bg-serena-mango h-1.5 rounded-full" style="width: 50%"></div></div>
             <h2 class="text-2xl font-medium text-center mb-8">¡Captado! Vamos al meollo del asunto para que esto sea memorable. ¿Qué te pide el cuerpo en esta escapada?</h2>
@@ -101,8 +97,6 @@
             </div>
             <div class="text-right"><button id="next-btn-q3" onclick="showScreen('screen-q4')" class="font-semibold text-lg text-serena-gray cursor-not-allowed" disabled>Siguiente &gt;</button></div>
         </div>
-
-        <!-- Pantalla 5: Pregunta 4 -->
         <div id="screen-q4" class="screen flex-col h-full p-6">
             <div class="progress-container w-full bg-gray-200 rounded-full h-1.5 mb-8"><div class="bg-serena-mango h-1.5 rounded-full" style="width: 66%"></div></div>
             <h2 class="text-2xl font-medium text-center mb-8">Vale, última pregunta antes de que mi IA eche humo y flipes con el viaje que te vamos a mostrar en exclusiva para ti. Dinos, ¿qué paisaje te inspira más?</h2>
@@ -126,8 +120,6 @@
             </div>
             <div class="text-right mt-4"><button id="next-btn-q4" onclick="showScreen('screen-q5')" class="font-semibold text-lg text-serena-gray cursor-not-allowed" disabled>Siguiente &gt;</button></div>
         </div>
-
-        <!-- Pregunta 5 (Filtros) -->
         <div id="screen-q5" class="screen flex-col h-full p-6">
             <div class="progress-container w-full bg-gray-200 rounded-full h-1.5 mb-8"><div class="bg-serena-mango h-1.5 rounded-full" style="width: 83%"></div></div>
             <h2 class="text-2xl font-medium text-center mb-6">Un último detalle para afinar la puntería...</h2>
@@ -152,8 +144,6 @@
             </div>
             <div class="text-right mt-4"><button id="next-btn-q5" onclick="showScreen('screen-q6')" class="font-semibold text-lg text-serena-gray cursor-not-allowed" disabled>Siguiente &gt;</button></div>
         </div>
-
-        <!-- Pantalla 6: Pregunta Final -->
         <div id="screen-q6" class="screen flex-col h-full p-6">
             <div class="progress-container w-full bg-gray-200 rounded-full h-1.5 mb-8"><div class="bg-serena-mango h-1.5 rounded-full" style="width: 100%"></div></div>
             <h2 class="text-2xl font-medium text-center mb-8">El toque final. Dale a nuestra IA el ingrediente secreto para que tu viaje no sea bueno, sino legendario.</h2>
@@ -204,9 +194,10 @@
             <p id="payment-subtitle" class="mb-6">Únete al Club Serena y desbloquea todos tus viajes personalizados.</p>
             <div class="text-left space-y-3 mb-8 bg-white p-6 rounded-2xl shadow">
                 <p>✅ <b>Ahorra 10h de media</b> en planificación.</p>
-                <p>✅ Descubre joyas ocultas, <b>no "trampas para turistas"</b>.</p>
+                <p>✅ <b>Ahorra más de 200€</b> en comisiones de agencia.</p>
+                <p>✅ Descubre joyas ocultas, no "trampas para turistas".</p>
                 <p>✅ Accede a <b>experiencias exclusivas</b> del Club.</p>
-                <p>✅ Únete a miles de viajeros que ya han encontrado su destino.</p>
+                <p>✅ <b>Únete a miles de viajeros</b> que ya han encontrado su destino.</p>
             </div>
             <div class="space-y-4">
                 <div class="relative">
@@ -549,11 +540,13 @@
         }
 
         // --- CONEXIÓN DE BOTONES (CORRECCIÓN) ---
-        document.getElementById('annual-plan-btn').addEventListener('click', function() {
-            handlePlanSelect(this, annualPriceId);
-        });
-        document.getElementById('monthly-plan-btn').addEventListener('click', function() {
-            handlePlanSelect(this, monthlyPriceId);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('annual-plan-btn').addEventListener('click', function() {
+                handlePlanSelect(this, annualPriceId);
+            });
+            document.getElementById('monthly-plan-btn').addEventListener('click', function() {
+                handlePlanSelect(this, monthlyPriceId);
+            });
         });
 
         // Asignar funciones a 'window'
